@@ -250,10 +250,10 @@ const cartItems = useSelector((state) =>
     state.cart.items.reduce((total, item) => total + item.quantity, 0)
   );
 
-   const handleContinueShopping = (e) => {
+  const handleContinueShopping = (e) => {
     e.preventDefault();
-    setShowCart(false);
-  };
+    setShowCart(false); // Hide the cart to show the product list
+};
   const handleAddToCart = (product) => {
     dispatch(addItem(product));
     setAddedToCart((prevState) => ({
@@ -300,9 +300,16 @@ const cartItems = useSelector((state) =>
                                         <div className="product-card" key={plantIndex}>
                                             <img className="product-image" src={plant.image} alt={plant.name} />
                                             <p className='product-cost'> ${plant.cost}</p>
+                                            <div className='product-description'>{plant.description}</div>
                                             <div className="product-title">{plant.name}</div>
                                             {/*Similarly like the above plant.name show other details like description and cost*/}
-                                            <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                                            <button
+                                                className={`product-button ${addedToCart[plant.name] ? 'added-to-cart' : ''}`}
+                                                onClick={() => handleAddToCart(plant)}
+                                                disabled={addedToCart[plant.name]}
+                                            >
+                                                {addedToCart[plant.name] ? 'Added to Cart' : 'Add to Cart'}
+                                            </button>
                                         </div>
                                     ))}
                                 </div>
@@ -311,7 +318,7 @@ const cartItems = useSelector((state) =>
 
         </div>
  ) :  (
-    <CartItem onContinueShopping={handleContinueShopping}/>
+    <CartItem onContinueShopping={handleContinueShopping} addedToCart={addedToCart} setAddedToCart={setAddedToCart} />
 )}
     </div>
     );
