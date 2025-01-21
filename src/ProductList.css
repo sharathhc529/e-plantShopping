@@ -10,6 +10,11 @@ body {
     background-color: #f0f0f0;
 }
 
+.alignHeaders{
+    display: flex;
+    justify-content: center;
+}
+
 /* Navbar */
 .navbar {
     background-color: #4CAF50;
@@ -37,6 +42,13 @@ body {
     font-size: 30px;
     text-decoration: none;
    
+}
+
+.placeNumber{
+    position: relative;
+    right: 41px;
+    font-size: 24px;
+    top: 20px;
 }
 
 /* Product Grid */
