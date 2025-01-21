@@ -48,6 +48,10 @@ const CartItem = ({ onContinueShopping, setAddedToCart }) => {
       }));
     };
 
+    const handleCheckout = () => {
+      alert("Coming Soon, please come back and check in 2 weeks!")
+    }
+
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
     return (item.quantity * item.cost).toFixed(2);
@@ -78,7 +82,7 @@ const CartItem = ({ onContinueShopping, setAddedToCart }) => {
       <div className="continue_shopping_btn">
         <button className="get-started-button" onClick={onContinueShopping}>Continue Shopping</button>
         <br />
-        <button className="get-started-button1">Checkout</button>
+        <button className="get-started-button1" onClick={() => handleCheckout()}>Checkout</button>
       </div>
     </div>
   );
