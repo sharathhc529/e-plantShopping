@@ -109,6 +109,10 @@ body {
     height: 200px; /* Adjust height for better consistency */
 }
 
+.product-cost{
+    color: red;
+}
+
 .product-button {
     background-color: #e74c3c;
     color: #fff;

@@ -32,13 +32,17 @@ const CartItem = ({ onContinueShopping }) => {
     if (item.quantity > 1) {
       dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
     } else {
-      dispatch(removeItem(item.id));
+      dispatch(removeItem(item.id));// Remove item if quantity goes to 0
     }
    
   };
 
+  const handleAddItem = (item) => {
+    dispatch(addItem({ name: item.name, cost: item.cost, quantity: 1, image: item.image }));
+  };
+
   const handleRemove = (item) => {
-    dispatch(removeItem(item.id));
+    dispatch(removeItem(item.id)); // Remove item entirely
   };
 
   // Calculate total cost based on quantity for an item
